@@ -66,6 +66,7 @@ import {
   MakerOrder,
 } from '@unemeta/sdk';
 import { ALCHEMY_KEYS, UNEMETA_API_KEY } from '@/constant';
+import { getErrorMessage } from '@/utils/error';
 
 const MAKE_MINT_ORDER_API = '/market/v1/mint/make';
 
@@ -535,7 +536,7 @@ const TaskModal = forwardRef<TaskModalAction, any>((_, ref) => {
         setFailedCount((prev) => prev + 1);
         toast({
           title: `NFT TokenId: ${id} 挂单失败`,
-          description: error.message,
+          description: getErrorMessage(error.message) || '未知错误',
           status: 'error',
         });
       }
@@ -575,10 +576,9 @@ const TaskModal = forwardRef<TaskModalAction, any>((_, ref) => {
         body: JSON.stringify({ order: { ...makerOrder, sign: signature } }),
       });
       const json = await makeResp.json();
-      console.log(
-        '🚀 ~ file: mint-list.tsx ~ line 550 ~ makeOrder ~ json',
-        json,
-      );
+      if (!json.data.status) {
+        throw Error('挂单签名完成后，接口调用失败');
+      }
     }
   };
 
