@@ -20,25 +20,25 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Run Npm Scripts
-        run: |
-          node -v
-          npm install pnpm -g
-          pnpm i
-          pnpm build
-    - name: Generator 404 file
-        run: |
-          cp ./dist/index.html ./dist/404.html
-      - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Run Npm Scripts
+          run: |
+            node -v
+            npm install pnpm -g
+            pnpm i
+            pnpm build
+      - name: Generator 404 file
+          run: |
+            cp ./dist/index.html ./dist/404.html
+        - name: Deploy 🚀
+          uses: peaceiris/actions-gh-pages@v3
+          if: ${{ github.ref == 'refs/heads/main' }}
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist
     
