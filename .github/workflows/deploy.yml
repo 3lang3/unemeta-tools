@@ -17,12 +17,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: Install Pnpm
-        run: npm install pnpm -g
       - name: Install Deps
-        run: pnpm install
+        run: npm install
       - name: Build
-        run: pnpm build
+        run: npm run build
       - name: Generator 404 file
         run: |
           cp ./dist/index.html ./dist/404.html
