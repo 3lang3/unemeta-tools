@@ -21,8 +21,7 @@ jobs:
         run: |
           node -v
           npm install pnpm -g
-          pnpm -v
-          pnpm install
+          pnpm i
           pnpm build
       - name: Generator 404 file
         run: |
