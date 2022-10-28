@@ -17,9 +17,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: Run Npm Scripts
+      - name: Install Pnpm
         run: npm install pnpm -g
+      - name: Install Deps
         run: pnpm install
+      - name: Build
         run: pnpm build
       - name: Generator 404 file
         run: |
