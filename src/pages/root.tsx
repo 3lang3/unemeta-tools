@@ -7,6 +7,8 @@ import {
   Badge,
 } from '@chakra-ui/react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import logo from '@/assets/logo.png'
+
 
 export default function Root() {
   return (
@@ -14,7 +16,7 @@ export default function Root() {
       <Flex bg="white" h="76px" align={'center'} px={10}>
         <ChakraLink mr={20} as={Link} textDecoration="none !important" to="/">
           <HStack spacing={5}>
-            <Image src="/logo.png" h="auto" w="38px" />
+            <Image src={logo} h="auto" w="38px" />
             <HStack>
               <Text fontWeight={'600'} fontSize="lg">
                 UneMeta
