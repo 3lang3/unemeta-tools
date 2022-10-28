@@ -1,0 +1,37 @@
+{
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars":[ "warn", { "varsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/no-unescaped-entities": "off",
+    "jsx-a11y/alt-text": "off",
+    "camelcase": [
+      "warn",
+      {
+        "properties": "never",
+        "ignoreDestructuring": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "@/features/*/*"
+        ]
+      }
+    ]
+  }
+}
