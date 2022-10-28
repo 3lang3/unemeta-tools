@@ -8,6 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import bgImage from '@/assets/hero.webp'
 
 export default function Index() {
   return (
@@ -15,7 +16,7 @@ export default function Index() {
       minH="calc(100vh - 76px)"
       w="full"
       maxW="full"
-      bgImg={'url("/hero.webp")'}
+      bgImg={bgImage}
       bgRepeat="no-repeat"
       bgPos={'center'}
       bgSize="cover"
