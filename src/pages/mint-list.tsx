@@ -65,9 +65,9 @@ import {
   generateMakerOrderTypedData,
   MakerOrder,
 } from '@unemeta/sdk';
-import { ALCHEMY_KEYS } from '@/constant';
+import { ALCHEMY_KEYS, UNEMETA_API_KEY } from '@/constant';
 
-const MAKE_MINT_ORDER_API = '';
+const MAKE_MINT_ORDER_API = '/market/v1/mint/make';
 
 function downloadCSV(arr: string[]) {
   const obj = arr.reduce<Record<string, number>>((a, v) => {
@@ -109,13 +109,13 @@ export default function App() {
   } = useForm<FormDataType>({
     defaultValues: {
       chainId: 'homestead',
-      contractAddress: '1',
+      contractAddress: '',
       contractType: 'ERC721',
-      privateKey: '1',
-      price: '1',
-      strategy: '1',
-      currency: '1',
-      api: '1',
+      privateKey: '',
+      price: '',
+      strategy: '',
+      currency: '',
+      api: '',
     },
   });
 
@@ -570,7 +570,7 @@ const TaskModal = forwardRef<TaskModalAction, any>((_, ref) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
-          'x-api-key': 'API_KEY',
+          'x-api-key': UNEMETA_API_KEY,
         },
         body: JSON.stringify({ order: { ...makerOrder, sign: signature } }),
       });
