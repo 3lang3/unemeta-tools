@@ -27,18 +27,18 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Run Npm Scripts
-          run: |
-            node -v
-            npm install pnpm -g
-            pnpm i
-            pnpm build
+        run: |
+          node -v
+          npm install pnpm -g
+          pnpm i
+          pnpm build
       - name: Generator 404 file
-          run: |
-            cp ./dist/index.html ./dist/404.html
-        - name: Deploy 🚀
-          uses: peaceiris/actions-gh-pages@v3
-          if: ${{ github.ref == 'refs/heads/main' }}
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./dist
+        run: |
+          cp ./dist/index.html ./dist/404.html
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
     
