@@ -18,11 +18,9 @@ jobs:
         with:
           node-version: '16'
       - name: Run Npm Scripts
-        run: |
-          node -v
-          npm install pnpm -g
-          pnpm i
-          pnpm build
+        run: npm install pnpm -g
+        run: pnpm install
+        run: pnpm build
       - name: Generator 404 file
         run: |
           cp ./dist/index.html ./dist/404.html
