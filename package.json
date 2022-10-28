@@ -2,6 +2,7 @@
   "name": "unemeta-tools",
   "version": "0.0.1",
   "type": "module",
+  "homepage": "https://3lang3.github.io/unemeta-tools",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

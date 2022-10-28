@@ -21,9 +21,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Generator 404 file
-        run: |
-          cp ./dist/index.html ./dist/404.html
+      #- name: Generator 404 file
+      #  run: |
+      #    cp ./dist/index.html ./dist/404.html
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
